@@ -16,6 +16,6 @@ pictures     -- originals of screen pictures
 
 BUILDING
 
-You must start QtCreator (I had used 4.0.2 with Qt 5.7.0) and point it to desctop/openecar_dashboard.pro, then you must configure prohect to your Kits and ask Creator to build project. It must do it! I hope...
+You must start QtCreator (I had used 4.0.2 with Qt 5.7.0) and point it to desktop/openecar_dashboard.pro, then you must configure prohect to your Kits and ask Creator to build project. It must do it! I hope...
 
 

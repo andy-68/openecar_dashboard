@@ -100,7 +100,7 @@ void CanProto::decodeFrame(const QCanBusFrame& frame)
                 tmp+=(quint8)frame.payload().at(3);
                 speedMPH=tmp/25.5;
                 break;
-            case 0x412:			// ODOmeter, miles
+            case 0x412:			// ODOmeter, kilometers
                 tmp=(quint8)frame.payload().at(2);
                 tmp<<=8;
                 tmp+=(quint8)frame.payload().at(3);

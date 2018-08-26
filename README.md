@@ -1,6 +1,6 @@
 openecar_dashboard#
 
-Application to decode an display some data from CAN-bus of Mercedes Smart fortwo electric 2014. Initially it has beed written for Abylay Ospan <aospan@jokersys.com>
+Application to decode and display some data from CAN-bus of Mercedes Smart fortwo electric 2014. Initially it has beed written for Abylay Ospan <aospan@jokersys.com>
 
 HIER
 can-proto    -- CAN-protocol decoder  

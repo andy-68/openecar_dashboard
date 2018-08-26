@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>pictures/openecar_dashboard_cln.png</file>
+    </qresource>
+</RCC>

@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QTimer>
+#include "config.h"
 
 #include "canproto.h"
 
@@ -15,7 +16,7 @@ class OpencarDashboard : public QMainWindow
     Q_OBJECT
 
 public:
-    OpencarDashboard(QWidget *parent,QString);
+    OpencarDashboard(QWidget *parent,config*);
     ~OpencarDashboard();
 
 virtual void resizeEvent(QResizeEvent*);

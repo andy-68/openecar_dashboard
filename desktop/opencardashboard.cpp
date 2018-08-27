@@ -1,7 +1,7 @@
 #include "opencardashboard.h"
 #include "ui_opencardashboard.h"
 
-OpencarDashboard::OpencarDashboard(QWidget *parent,QString device) :
+OpencarDashboard::OpencarDashboard(QWidget *parent,config* conf) :
     QMainWindow(parent),
     ui(new Ui::OpencarDashboard)
 {
@@ -10,7 +10,8 @@ OpencarDashboard::OpencarDashboard(QWidget *parent,QString device) :
     can=new CanProto();
     connect(can,SIGNAL(deviceConnected()),this,SLOT(deviceConnected()));
     connect(can,SIGNAL(deviceDisconnected()),this,SLOT(deviceDisconnected()));
-    can->useDevice(device);
+    can->useDevice(conf->getIfName());
+    can->setDump(conf->getDumpOK());
     tick=new QTimer();
     connect(tick,SIGNAL(timeout()),this,SLOT(refreshScreen()));
     tick->setInterval(200);
@@ -26,6 +27,25 @@ OpencarDashboard::~OpencarDashboard()
 
 void OpencarDashboard::resizeEvent(QResizeEvent *)
 {
+    this->setFixedHeight(this->width()*9/16);
+//    QFont font=this->font();
+    int fsize=this->size().width()/70;
+    ui->label_OpenECAR->setFont(QFont("Aial",fsize,70));
+    ui->label_Vdatetime->setFont(QFont("Aial",fsize,70));
+    ui->label_Vodometer->setFont(QFont("Aial",fsize,70));
+    ui->label_Vtemperature->setFont(QFont("Aial",fsize,70));
+
+    fsize*=4;
+
+    ui->label_VbatteryProc->setFont(QFont("Aial",fsize,70));
+    ui->label_Vpower->setFont(QFont("Aial",fsize,70));
+    ui->label_Vspeed->setFont(QFont("Aial",fsize,70));
+
+/*    ui->label_VbatteryProc->
+    ui->label_VbatteryProc->
+    ui->label_VbatteryProc->
+    ui->label_VbatteryProc->
+    ui->label_VbatteryProc-> */
     QPixmap bkgnd (":/pictures/openecar_dashboard_cln.png");
     bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
     QPalette palette;

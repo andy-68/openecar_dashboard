@@ -15,10 +15,12 @@ INCLUDEPATH += ../can-proto
 
 SOURCES += main.cpp\
         opencardashboard.cpp \
-    ../can-proto/canproto.cpp
+    ../can-proto/canproto.cpp \
+    config.cpp
 
 HEADERS  += opencardashboard.h \
-    ../can-proto/canproto.h
+    ../can-proto/canproto.h \
+    config.h
 
 FORMS    += opencardashboard.ui
 

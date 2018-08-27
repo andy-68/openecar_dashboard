@@ -83,6 +83,8 @@ void CanProto::decodeFrame(const QCanBusFrame& frame)
         int		tmp;
         bool	changed	= true;
 
+        if(dumpOK)dumpFrame(frame);
+
         switch (frame.frameId())
         {
             case 0x2d5:			// Battery charge level presize
@@ -126,7 +128,7 @@ void CanProto::decodeFrame(const QCanBusFrame& frame)
                 break;
             default:
                 changed=false;
-                dumpFrame(frame);
+//                dumpFrame(frame);
                 break;
         }
         if(changed)emit(dataReceived());

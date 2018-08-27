@@ -37,6 +37,7 @@ public slots:
     float	getHiVolage()			{return(hiVolts);}
     float	getExtTemperature()		{return(extTemperature);}
     QTime	getTimestamp()			{return(timestamp);}
+    void	setDump(bool d)			{dumpOK=d;}
 
 private slots:
     void readFrames();
@@ -54,6 +55,7 @@ private:
     float	hiVolts						= 0;
     float	extTemperature				= 0;
     QTime	timestamp					= QTime(0,0);
+    bool	dumpOK						= false;
 };
 
 #endif // CANPROTO_H

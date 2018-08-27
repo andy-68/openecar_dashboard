@@ -70,7 +70,7 @@ void OpencarDashboard::refreshScreen()
 {
     if(!CANisOK)return;
     if(!can)return;
-    ui->label_Vdatetime->setText(can->getTimestamp().toString("h:m"));
+    ui->label_Vdatetime->setText(can->getTimestamp().toString("hh:mm"));
     ui->label_Vtemperature->setText(QString().asprintf("%3.1f degC",can->getExtTemperature()));
     ui->label_Vspeed->setText(QString().asprintf("%2.0f",can->getSpeedImper()));
     ui->label_VbatteryProc->setText(QString().asprintf("%2.0f",can->getBatteryLevelRounded()));

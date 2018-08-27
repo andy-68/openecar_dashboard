@@ -20,7 +20,8 @@ SOURCES += main.cpp\
 
 HEADERS  += opencardashboard.h \
     ../can-proto/canproto.h \
-    config.h
+    config.h \
+    revision.h
 
 FORMS    += opencardashboard.ui
 

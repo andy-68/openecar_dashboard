@@ -18,4 +18,11 @@ BUILDING
 
 You must start QtCreator (I had used 4.0.2 with Qt 5.7.0) and point it to desktop/openecar_dashboard.pro, then you must configure prohect to your Kits and ask Creator to build project. It must do it! I hope...
 
+RUN
+Run-time ptions:
+  -h, --help                Displays this help.
+  -d, --device <interface>  interface to use for CAN-bus access
+  -c, --can_dump            dump all CAN messages
+  -f, --fullscreen          start in full-screen mode
 
+duble click switches normal and fullscreen modes

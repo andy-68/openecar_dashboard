@@ -13,9 +13,14 @@ OpencarDashboard::OpencarDashboard(QWidget *parent,config* conf) :
     can->useDevice(conf->getIfName());
     can->setDump(conf->getDumpOK());
     tick=new QTimer();
+    tFSO=new QTimer();
     connect(tick,SIGNAL(timeout()),this,SLOT(refreshScreen()));
+    connect(tFSO,SIGNAL(timeout()),this,SLOT(FSOn()));
     tick->setInterval(200);
+    tFSO->setInterval(100);
+    tFSO->setSingleShot(true);
     tick->start();
+    if(conf->getFSM())tFSO->start();
     refreshScreen();
 }
 
@@ -41,11 +46,6 @@ void OpencarDashboard::resizeEvent(QResizeEvent *)
     ui->label_Vpower->setFont(QFont("Aial",fsize,70));
     ui->label_Vspeed->setFont(QFont("Aial",fsize,70));
 
-/*    ui->label_VbatteryProc->
-    ui->label_VbatteryProc->
-    ui->label_VbatteryProc->
-    ui->label_VbatteryProc->
-    ui->label_VbatteryProc-> */
     QPixmap bkgnd (":/pictures/openecar_dashboard_cln.png");
     bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
     QPalette palette;
@@ -76,4 +76,17 @@ void OpencarDashboard::refreshScreen()
     ui->label_VbatteryProc->setText(QString().asprintf("%2.0f",can->getBatteryLevelRounded()));
     ui->label_Vodometer->setText(QString().asprintf("Odo: %10.0f km",can->getODOmeterMetric()));
     ui->label_Vpower->setText(QString().asprintf("%3.1f",can->getHiApms()*can->getHiVolage()/1000));
+}
+
+void OpencarDashboard::FSOn()
+{
+    // It looks as set of crutches, but, if simply set FullScreen mode in constructor, it works
+    // very strange (in Qt 5.7.0 and multy-monitor configuration)
+    mouseDoubleClickEvent(NULL);
+}
+
+void OpencarDashboard::mouseDoubleClickEvent(QMouseEvent*)
+{
+    if(this->isFullScreen())this->setWindowState(this->windowState() &(!Qt::WindowFullScreen));
+    else this->setWindowState(Qt::WindowFullScreen);
 }

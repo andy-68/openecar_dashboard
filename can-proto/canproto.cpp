@@ -126,6 +126,9 @@ void CanProto::decodeFrame(const QCanBusFrame& frame)
                 tmp-=0x2000;
                 hiAmps=tmp/10.0;
                 break;
+            case 0x408:			// Ext Temperature
+                extTemperature=((quint8)frame.payload().at(2))/2.0-40;
+                break;
             default:
                 changed=false;
 //                dumpFrame(frame);

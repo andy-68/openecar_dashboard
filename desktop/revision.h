@@ -8,7 +8,7 @@
 	#define	REV_MINOR	0
 #endif
 #ifndef	REV_BUILD
-    #define	REV_BUILD	4
+    #define	REV_BUILD	5
 #endif
 
 #endif	// _REVISON_H

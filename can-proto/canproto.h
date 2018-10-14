@@ -27,16 +27,17 @@ signals:
     void dataReceived();
 
 public slots:
-    float	getBatteryLevelPresise(){return(batteryChargeLevelPresize);}
-    float	getBatteryLevelRounded(){return(batteryChargeLevelRounded);}
     float	getSpeedMetric()		{return(speedMPH*1.60934);}
     float	getSpeedImper()			{return(speedMPH);}
     float	getODOmeterMetric()		{return(ODOmeter);}
     float	getODOmeterImper()		{return(ODOmeter/1.60934);}
-    float	getHiApms()				{return(hiAmps);}
-    float	getHiVolage()			{return(hiVolts);}
     float	getExtTemperature()		{return(extTemperature);}
     QTime	getTimestamp()			{return(timestamp);}
+
+    float	getBatteryLevelPresise(){return(batteryChargeLevelPresize);}
+    float	getBatteryLevelRounded(){return(batteryChargeLevelRounded);}
+    float	getHiApms()				{return(hiAmps);}
+    float	getHiVolage()			{return(hiVolts);}
     void	setDump(bool d)			{dumpOK=d;}
 
 private slots:
